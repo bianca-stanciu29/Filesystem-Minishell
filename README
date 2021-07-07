@@ -1,0 +1,41 @@
+STANCIU BIANCA-ANDREEA, GRUPA 315CC
+
+-------------------------------------------------FSMINISHELL------------------------------------------------------------
+
+	    In realizarea acestei teme am folosit notiuni de structuri si liste inlantuite pentru a putea implementa un
+sistem de fisiere minimal, plecandu-se de la directorul radacina si impartindu-se in fisiere si directoare.
+	    In file.c am implementat sistemul de fisiere: prima data functii pentru crearea unui director, respectiv a
+unui fisier. Pentru crearea directorului radacina, root, unde am apelat functia de creare director parinte NULL.
+	    In functia touch am creat un fisier si pentru a-l adauga am testat daca este primul fisier din directorul
+curent, altfel pentru a-l adauga intr-o ordine lexico-grafica se va compara dupa nume si se va stabili astfel unde se
+va adauga.
+	    In functia mkdir am procedat asemanator: am testat daca este primul director din lista de directoare, altfe se
+va compara la fel, dupa nume, si se va adauga.
+	   Pentru a sterge un director am parcurs mai intai lista de fisiere din directorul curent si le-am sters folosind o
+functie de stergere de fisiere. Am parcurs lista de directoare, iar recursiv am eliberat tot subdirectorul de fisiere,
+iar apoi am cautat pozitia acestuia in lista de directoare in functie de nume si l-am eliminat.
+	    Pentru a sterge un fisier dintr-un director curent am verificat daca lista de fisiere nu este vida si am cautat
+dupa nume fisierul care va urma a fi sters. In cazul in care este primul fisier din lista va fi sters direct, altfel va
+fi parcursa lista de fisiere pana va fi gasit cel care va fi sters.
+	    In functia cd am evalua prima data cazul "..", in care directorul curent se va schimba cu directorul parinte.
+Altfel am parcurs lsta de directoare pana am ajuns la directorul dorit, acesta devenind directorul curent.
+	    In functia tree, am folosit o variabila de identare stanga, parcurgand mai intai lista de fisiere din directorul
+curent si afisand-o, urmand apoi lista de directoare, procesul repetandu-se pana la finalul listei, nivelul de identare
+crescand la fiecare reapelare a functiei.
+	    La pwd, folosind recursivitatea am parcurs sistemul de directoare pornind de la directorul curent pana la root
+"/".
+	  In functia find, cat timp nu s-a ajuns la nivelul maxim se va cauta initial in directorul curent fisierele care au
+o dimensiune cuprinsa intre size_min si size_max si care contin textul cautat (data_find), afisandu-le. Se va parcurge
+apoi lista de directoare si se va testa pentru fiecare daca exista fisiere care respecta conditiile impuse.
+	  In ultima functie, delete_fs, se va parcurge sistemul de fisiere eliberand continutul fiecarui fisier si apoi
+stergand directorul radacina al sistemului de fisiere.
+	In header file "file.h" am pus strcutura pentru Directoare, structura pentru fisiere, structura pentru nodurile de
+legatura pentru directoare, respectiv fisiere si antetele functiilor create in file.c .
+	In main.c, folosind un pointer pentru a extrage fiecare paramentru din comanda data in linia de comanda am testat
+pentru fiecare functie in parte. Comenzile vor fi citite pana la introducerea functiei delete fs. La functia rmdir s-a
+cautat directorul care va fi sters fiind apoi apelata functia din file.c . La functia ls s-a parcurs toata lista de
+fisiere din directorul curent, fiind afisate lexico-grafic fisierele, urmante de numele directoarelor din fisierul
+curent. La find folosind atoi am extras level_max, size_min, size_max, fiind apelata apoi functia din file.c .
+
+
+
